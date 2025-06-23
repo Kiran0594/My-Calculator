@@ -13,7 +13,7 @@ This is a responsive and functional calculator built with **HTML, CSS, and JavaS
 
 ## 📸 Preview
 
-![Calculator Screenshot](Capture.png)
+![Calculator Screenshot](Capture.PNG)
 
 ## 🛠 Technologies Used
 
