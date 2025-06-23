@@ -11,6 +11,9 @@ This is a responsive and functional calculator built with **HTML, CSS, and JavaS
 - Auto-reset behavior after calculation
 - Responsive and styled UI
 
+## 📸 Preview
+
+![Calculator Screenshot](Capture.png)
 
 ## 🛠 Technologies Used
 
