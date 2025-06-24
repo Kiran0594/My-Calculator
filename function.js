@@ -55,4 +55,34 @@ function calculate() {
         if (display.value.trim() === "") return;
 
         // Evaluate safely using Function constructor
-        const result = Function('"use strict"; return (' +
+        const result = Function('"use strict"; return (' +display.value+ ')')();
+        // Handle division by zero or invalid result
+        display.value = (result === Infinity || result === -Infinity) ? "Error" : result;
+        justCalculated = true;
+    } catch {
+        // Show error for invalid expressions
+        display.value = "Error";
+        justCalculated = true;
+    }
+}
+
+// Handle keyboard input events
+document.addEventListener('keydown', (e) => {
+    const allowedKeys = '0123456789+-*/.';
+
+    if (allowedKeys.includes(e.key)) {
+        // Allow numbers and operators via keyboard
+        append(e.key);
+    } else if (e.key === 'Enter' || e.key === '=') {
+        // Allow Enter and = to trigger calculation
+        e.preventDefault();
+        calculate();
+    } else if (e.key === 'Backspace') {
+        // Allow backspace to remove last character
+        display.value = display.value.slice(0, -1);
+    } else if (e.key === 'Escape') {
+        // Clear the display with Escape key
+        clearDisplay();
+    }
+});
+                                
