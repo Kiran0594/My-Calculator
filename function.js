@@ -1,8 +1,12 @@
+//Get the input field where the calculation is displayed
 let display=document.getElementById('display');
+//This flag helps determine if the last action was a calculation
 let justCalculated=false;
 
 function append(value){
     const operators=['+','-','*','/','√'];
+    // If the previous action was a calculation and the new input is a number/dot,
+    // then clear the display for a fresh input
     if(justCalculated){
         if(!operators.includes(value)){
             display.value='';
@@ -44,7 +48,7 @@ function calculate(){
             justCalculated = true;
         }
 }
-
+//Add keyboard support for calculator operations
 document.addEventListener('keydown', (e) => {
   const allowedKeys = '0123456789+-*/.';
   if (allowedKeys.includes(e.key)) {
